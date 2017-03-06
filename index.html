@@ -98,11 +98,11 @@
           <div class="card-footer text-muted">
             <form class="form-inline" id="options">
               <div class="input-group">
-                <input type="text" class="form-control" placeholder="HSE frequency" aria-describedby="input-hse-addon" id="input-hse">
+                <input type="text" class="form-control" placeholder="Crystal frequency (HSE)" aria-describedby="input-hse-addon" id="input-hse">
                 <span class="input-group-addon" id="input-hse-addon">MHz</span>
               </div>
               <div class="input-group">
-                <input type="text" class="form-control" placeholder="PLL frequency" aria-describedby="input-pll-addon" id="input-pll">
+                <input type="text" class="form-control" placeholder="System frequency (PLL)" aria-describedby="input-pll-addon" id="input-pll">
                 <span class="input-group-addon" id="input-pll-addon">MHz</span>
               </div>
               <select class="custom-select" id="input-vos">
@@ -121,7 +121,9 @@
     </div>
     <div class="row" id="about">
       <div class="col footer">
-        No responsibility is taken for the correctness of this webpage. Use at your own risk.
+        <span>Scale 1 mode limits system frequency to 168MHz, Scale 2 mode limits it to 144MHz.</span>
+        <br>
+        <span>No responsibility is taken for the correctness of this webpage. Use at your own risk.</span>
       </div>
     </div>
   </div>
