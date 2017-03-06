@@ -23,12 +23,9 @@
       border: 1px solid rgba(0,0,0,.125);
       border-radius: 0.25rem;
     }
-    .option {
-      min-width: 1rem;
-      padding: 0.1rem 0.2rem;
-      border-radius: 0.2rem;
-      border: 1px solid rgba(0,0,0,.125);
-      background-color: rgba(0,0,0,.025);
+    .table {
+      table-layout: fixed;
+      /*text-align: center;*/
     }
     .footer {
       padding-top: 1rem;
@@ -65,18 +62,38 @@
 		.ppre1 = <span id="ppre1"></span>,
 		.ppre2 = <span id="ppre2"></span>,
 		.voltage_scale = <span id="vos"></span>,
-		.flash_config = <span id="flash"></span>,
-		.ahb_frequency  = <span id="ahb"></span>,
-		.apb1_frequency = <span id="apb1"></span>,
-		.apb2_frequency = <span id="apb2"></span>,
+		.flash_config = FLASH_ACR_DCE | FLASH_ACR_ICE | <span id="flash"></span>,
+		.ahb_frequency  = <span id="ahb_freq"></span>,
+		.apb1_frequency = <span id="apb1_freq"></span>,
+		.apb2_frequency = <span id="apb2_freq"></span>,
 	},
 }</code></pre>
-            <ul class="list-group">
-              <li class="list-group-item" id="hse"></li>
-              <li class="list-group-item" id="vco-in"></li>
-              <li class="list-group-item" id="vco-out"></li>
-              <li class="list-group-item" id="pll"></li>
-            </ul>
+            <table class="table table-bordered">
+              <thead>
+                <tr>
+                  <!-- <th>Clock</th> -->
+                  <th data-toggle="tooltip" data-html="true" data-placement="left" data-animation="false" title="PLL in<br>4 - 26MHz">HSE</th>
+                  <th data-toggle="tooltip" data-html="true" data-placement="left" data-animation="false" title="VCO in<br>1 - 2MHz">VCOin</th>
+                  <th data-toggle="tooltip" data-html="true" data-placement="left" data-animation="false" title="VCO out<br>100 - 432MHz">VCOout</th>
+                  <th data-toggle="tooltip" data-html="true" data-placement="left" data-animation="false" title="PLL out<br>Max 168MHz">PLL</th>
+                  <th data-toggle="tooltip" data-html="true" data-placement="left" data-animation="false" title="HCLK<br>Max 168MHz">AHB</th>
+                  <th data-toggle="tooltip" data-html="true" data-placement="left" data-animation="false" title="Low-speed APB<br>Max 84MHz">APB1</th>
+                  <th data-toggle="tooltip" data-html="true" data-placement="left" data-animation="false" title="High-speed APB<br>Max 42MHz">APB2</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <!-- <th scope="row">Frequency</th> -->
+                  <td id="hse">&nbsp;</td>
+                  <td id="vco-in">&nbsp;</td>
+                  <td id="vco-out">&nbsp;</td>
+                  <td id="pll">&nbsp;</td>
+                  <td id="ahb">&nbsp;</td>
+                  <td id="apb1">&nbsp;</td>
+                  <td id="apb2">&nbsp;</td>
+                </tr>
+              </tbody>
+            </table>
           </div>
           <div class="card-footer text-muted">
             <form class="form-inline" id="options">
@@ -110,12 +127,8 @@
   </div>
 
 
-  <!-- Lodash -->
-  <script src="https://cdn.jsdelivr.net/lodash/4.17.4/lodash.min.js" crossorigin="anonymous"></script>
-
   <!-- jQuery first, then Tether, then Bootstrap JS. -->
-  <!-- <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script> -->
-  <script src="http://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
 

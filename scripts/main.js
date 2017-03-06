@@ -128,16 +128,16 @@ function getHSEConfig() {
                 if (inRange(clk[cl])) {
                   cfg[cf].val = i;
                   document.getElementById(cf).textContent = `RCC_CFGR_${cf.substr(0, 4).toUpperCase()}_DIV_${i === 1 ? 'NONE' : i}`;
-                  document.getElementById(cl).textContent = clk[cl].val * 100000;
+                  document.getElementById(`${cl}_freq`).textContent = clk[cl].val * 100000;
                   break;
                 }
               }
             }
 
             document.getElementById('hclk').textContent = clk.ahb.val;
-            for (let cl of ['hse', 'vcoIn', 'vcoOut', 'pll']) {
+            for (let cl in clk) {
               document.getElementById(cl.replace('vco', 'vco-').toLowerCase())
-                .textContent = `${cl.toUpperCase()}: ${clk[cl].val}MHz`;
+                .textContent = `${clk[cl].val} MHz`;
             }
 
             for (let v in vos) {
@@ -214,3 +214,7 @@ voltageInput.addEventListener('input', function(e) {
     e.target.value = voltage.val || '';
   }
 });
+
+$(function () {
+  $('[data-toggle="tooltip"]').tooltip()
+})
